@@ -113,10 +113,8 @@
           (str name " (" birth-year " - )")
           :else (str name))))
 
-  (str (:name author)))
-
 (defn authors->string [authors]
-  :-)
+  (apply str (interpose ", " (map author->string authors))))
 
 (defn book->string [book]
   :-)
