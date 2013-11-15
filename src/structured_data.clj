@@ -1,4 +1,5 @@
-(ns structured-data)
+(ns structured-data
+  (:use clojure.set))
 
 (defn do-a-thing [x]
   (let [xx (+ x x)]
@@ -95,7 +96,11 @@
   (contains? (:authors new-book) author)))
 
 (defn authors [books]
-  :-)
+  (let [book-authors (fn [book] (:authors book))
+        new-books (map old-book->new-book books)]
+  (apply
+     union
+     (map book-authors new-books))))
 
 (defn all-author-names [books]
   :-)
