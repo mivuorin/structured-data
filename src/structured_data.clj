@@ -98,12 +98,10 @@
 (defn authors [books]
   (let [book-authors (fn [book] (:authors book))
         new-books (map old-book->new-book books)]
-  (apply
-     union
-     (map book-authors new-books))))
+  (apply union (map book-authors new-books))))
 
 (defn all-author-names [books]
-  :-)
+  (set (map :name (authors books))))
 
 (defn author->string [author]
   :-)
